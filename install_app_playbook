@@ -1,0 +1,24 @@
+---
+- hosts: ${app}
+  vars:
+    - user: {{ user }}
+  tasks:
+    - name: "Remove dest dir"
+      file:
+        dest: "${dest_path}"
+        state: absent
+    - name: Create instance dir
+      file:
+        path: "${dest_path}"
+        state: directory
+        mode: 755
+        owner: "{{ user }}"
+        group: "{{ user }}"
+    - name: "Copy pak to dest host"
+      unarchive:
+        copy: yes
+        src: "${src_path}"
+        dest: "${dest_path}"
+        owner: "{{ user }}"
+        group: "{{ group }}"
+        #mode: 755

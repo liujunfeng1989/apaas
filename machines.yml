@@ -1,0 +1,5 @@
+{
+    "sender": ["10.0.0.7", "10.0.0.9"],
+    "arkweb": ["/mnt/mysql.dns", "/mnt/mysql.dnsa"],
+    "playbook": ["install_app_playbook.yml"]
+}
